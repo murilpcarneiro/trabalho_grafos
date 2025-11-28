@@ -8,7 +8,7 @@
 ## 📋 Informações do Trabalho
 
 - **Data de Entrega:** 29/11/2025
-- **Disciplina:** Grafos
+- **Disciplina:** Teoria dos Grafos
 - **Professor:** Daniel Leal Souza
 - **Equipe:** 5 integrantes
 - **Status:** ✅ Entregue
@@ -17,11 +17,12 @@
 
 ## 🎯 Resumo Executivo
 
-Este repositório contém a implementação completa do trabalho proposto pela disciplina de Grafos do CESUPA, focando em **três estruturas de dados fundamentais para ciência da computação moderna**:
+Este repositório contém a implementação completa do trabalho proposto pela disciplina de Grafos do CESUPA, focando em **quatro estruturas de dados fundamentais para ciência da computação moderna**:
 
 1. **Árvore k-D** - Para buscas em espaços multidimensionais
 2. **Árvore Rubro-Negra** - Para operações balanceadas eficientes
 3. **Árvore 2-3-4** - Para indexação com menos rotações
+4. **Árvore Splay** - Para acesso adaptativo com reestruturação dinâmica
 
 Cada implementação segue rigorosamente os requisitos técnicos, com nós implementados manualmente e operações críticas de inserção, exclusão e busca totalmente funcionais.
 
@@ -135,6 +136,29 @@ python -m pytest testes/
 
 ---
 
+### 4. **Árvore Splay**
+
+- **Status:** ✅ Explicação Detalhada + Exemplo + **Implementação Completa**
+- **Descrição:** Árvore de busca binária auto-equilibrada que reorganiza elementos acessados para raiz
+- **Operações:** Inserção, exclusão e busca em O(log n) amortizado
+- **Propriedades:**
+  - Não mantém informações de cor ou altura
+  - Nó acessado é movido para raiz via operações splay
+  - Dados recentemente acessados ficam perto da raiz
+  - Excelente para dados com padrões de acesso variáveis
+
+**Arquivo:** `src/arvore_splay/splay_tree.py`
+
+**Operações Implementadas:**
+
+- ✅ Inserção com reestruturação automática
+- ✅ Exclusão com rebalanceamento
+- ✅ Busca por valor
+- ✅ Operação splay (zig, zig-zig, zig-zag)
+- ✅ Visualização da árvore
+
+---
+
 ## 🧪 Testes e Demonstrações
 
 O programa de demonstração realiza:
@@ -186,6 +210,12 @@ trabalho_grafos/
 │   │   ├── node_234.py                # Classe do nó
 │   │   └── operacoes.py               # Inserção, exclusão, busca
 │   │
+│   ├── arvore_splay/
+│   │   ├── __init__.py
+│   │   ├── splay_tree.py              # Implementação Árvore Splay
+│   │   ├── node_splay.py              # Classe do nó
+│   │   └── operacoes_splay.py         # Operações splay e rotações
+│   │
 │   └── utils/
 │       ├── visualizacao.py            # Plotagem e visualização
 │       └── testes.py                  # Funções de teste
@@ -194,6 +224,7 @@ trabalho_grafos/
 │   ├── test_red_black_tree.py         # Testes Árvore Rubro-Negra
 │   ├── test_tree_234.py               # Testes Árvore 2-3-4
 │   ├── test_kd_tree.py                # Testes Árvore k-D
+│   ├── test_splay_tree.py             # Testes Árvore Splay
 │   └── test_integracao.py             # Testes de integração
 │
 ├── visualizacao/
@@ -210,15 +241,17 @@ trabalho_grafos/
 
 ## 🔬 Análise Comparativa dos Algoritmos
 
-| Aspecto         | Rubro-Negra    | 2-3-4              | k-D            |
-| --------------- | -------------- | ------------------ | -------------- |
-| **Tipo**        | Árvore Binária | Árvore N-ária      | Árvore Binária |
-| **Inserção**    | O(log n)       | O(log n)           | O(log n)       |
-| **Busca**       | O(log n)       | O(log n)           | O(log n)       |
-| **Exclusão**    | O(log n)       | O(log n)           | O(log n)       |
-| **Rotações**    | Múltiplas      | Poucas (split)     | N/A            |
-| **Dimensão**    | 1D             | 1D                 | n-D            |
-| **Caso de Uso** | Dados gerais   | Indexação de disco | Busca espacial |
+| Aspecto         | Rubro-Negra    | 2-3-4              | k-D            | Splay           |
+| --------------- | -------------- | ------------------ | -------------- | --------------- |
+| **Tipo**        | Árvore Binária | Árvore N-ária      | Árvore Binária | Árvore Binária  |
+| **Inserção**    | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
+| **Busca**       | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
+| **Exclusão**    | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
+| **Rotações**    | Múltiplas      | Poucas (split)     | N/A            | Múltiplas       |
+| **Dimensão**    | 1D             | 1D                 | n-D            | 1D              |
+| **Caso de Uso** | Dados gerais   | Indexação de disco | Busca espacial | Acesso variável |
+
+\*Complexidade amortizada
 
 ---
 
