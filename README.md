@@ -9,8 +9,8 @@
 
 - **Data de Entrega:** 29/11/2025
 - **Disciplina:** Grafos
-- **Professor:** [Nome do Professor]
-- **Equipe:** 4 integrantes
+- **Professor:** Daniel Leal Souza
+- **Equipe:** 5 integrantes
 - **Status:** ✅ Entregue
 
 ---
@@ -69,12 +69,12 @@ python -m pytest testes/
 ## 👥 Integrantes da Equipe
 
 | Nome
-| ---------------
-| Murilo Carneiro
-| João Pedro Silva Silva
-| Joãao Felipe da Rocha
+| ----------------------------
+| João Pedro Silva da Silva
+| Murilo Pantoja Carneiro
 | Pedro Lyra
 | Vithor dos Santos
+| João Felipe da Rocha Soares
 
 ---
 
@@ -234,7 +234,7 @@ A gravação em vídeo está disponível em: [Link do vídeo no Google Classroom
 - Demonstração prática: inserção, busca e exclusão
 - Análise de performance e visualização gráfica
 
-**Participantes:** Todos os 4 integrantes da equipe
+**Participantes:** Todos os 5 integrantes da equipe
 
 ---
 
