@@ -28,40 +28,57 @@ Cada implementação segue rigorosamente os requisitos técnicos, com nós imple
 
 ### Pré-requisitos
 
+**Para Árvore Rubro-Negra (Python):**
+
 - Python 3.8 ou superior
 - Bibliotecas necessárias:
   ```bash
   pip install matplotlib networkx
   ```
 
+**Para Árvore 2-3-4 (C):**
+
+- Compilador GCC ou Clang
+
 ### Instalação e Execução
 
-1. Clone o repositório:
+**Árvore Rubro-Negra:**
+
+1. Acesse o diretório:
 
    ```bash
-   git clone https://github.com/murilpcarneiro/trabalho_grafos.git
-   cd trabalho_grafos
+   cd "Arvore rubro-negra"
    ```
 
-2. Execute o programa principal:
+2. Execute o programa:
 
    ```bash
-   python src/main.py
+   python main.py
    ```
 
-3. O programa irá:
-   - Criar as árvores (Rubro-Negra e 2-3-4)
-   - Inserir 25 elementos aleatórios
-   - Realizar operações de busca e exclusão
-   - Visualizar as árvores em formato gráfico
+3. Execute os testes:
+   ```bash
+   python testes.py
+   ```
 
-### Testes
+**Árvore 2-3-4:**
 
-Para executar os testes automatizados:
+1. Acesse o diretório:
 
-```bash
-python -m pytest testes/
-```
+   ```bash
+   cd "Arvore 2-3-4"
+   ```
+
+2. Compile o programa:
+
+   ```bash
+   gcc main.c -o arvore_234
+   ```
+
+3. Execute o programa compilado:
+   ```bash
+   ./arvore_234
+   ```
 
 ---
 
@@ -105,6 +122,7 @@ python -m pytest testes/
 ### 2. **Árvore 2-3-4**
 
 - **Status:** ✅ Explicação Detalhada + Exemplo + **Implementação Completa**
+- **Linguagem:** C
 - **Descrição:** Árvore n-ária equilibrada onde cada nó pode ter 2, 3 ou 4 filhos
 - **Operações:** Inserção, exclusão e busca em O(log n)
 - **Vantagens:**
@@ -112,7 +130,7 @@ python -m pytest testes/
   - Menos rotações que árvores vermelha-preta
   - Melhor cache locality
 
-**Arquivo:** `src/arvore_2_3_4/tree_234.py`
+**Arquivo:** `Arvore 2-3-4/main.c`
 
 **Operações Implementadas:**
 
@@ -152,16 +170,14 @@ O programa de demonstração realiza:
 trabalho_grafos/
 ├── README.md                           # Este arquivo
 │
-├── Arvore rubro-negra/
+├── Arvore rubro-negra/                 # Implementação em Python
 │   ├── main.py                         # Programa principal - demonstração
 │   ├── testes.py                       # Testes da árvore rubro-negra
 │   ├── requirements.txt                # Dependências
 │   └── README.md                       # Documentação específica
 │
-└── Arvore 2-3-4/
-    ├── main.py                         # Programa principal - demonstração
-    ├── testes.py                       # Testes da árvore 2-3-4
-    ├── requirements.txt                # Dependências
+└── Arvore 2-3-4/                       # Implementação em C
+    ├── main.c                          # Programa principal em C
     └── README.md                       # Documentação específica
 ```
 
