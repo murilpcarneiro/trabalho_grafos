@@ -17,12 +17,10 @@
 
 ## 🎯 Resumo Executivo
 
-Este repositório contém a implementação completa do trabalho proposto pela disciplina de Grafos do CESUPA, focando em **quatro estruturas de dados fundamentais para ciência da computação moderna**:
+Este repositório contém a implementação completa do trabalho proposto pela disciplina de Grafos do CESUPA, focando em **duas estruturas de dados fundamentais para ciência da computação moderna**:
 
-1. **Árvore k-D** - Para buscas em espaços multidimensionais
-2. **Árvore Rubro-Negra** - Para operações balanceadas eficientes
-3. **Árvore 2-3-4** - Para indexação com menos rotações
-4. **Árvore Splay** - Para acesso adaptativo com reestruturação dinâmica
+1. **Árvore Rubro-Negra** - Para operações balanceadas eficientes
+2. **Árvore 2-3-4** - Para indexação com menos rotações
 
 Cada implementação segue rigorosamente os requisitos técnicos, com nós implementados manualmente e operações críticas de inserção, exclusão e busca totalmente funcionais.
 
@@ -52,7 +50,7 @@ Cada implementação segue rigorosamente os requisitos técnicos, com nós imple
    ```
 
 3. O programa irá:
-   - Criar as árvores (k-D, Rubro-Negra e 2-3-4)
+   - Criar as árvores (Rubro-Negra e 2-3-4)
    - Inserir 25 elementos aleatórios
    - Realizar operações de busca e exclusão
    - Visualizar as árvores em formato gráfico
@@ -81,18 +79,7 @@ python -m pytest testes/
 
 ## 📚 Implementações Realizadas
 
-### 1. **Árvore k-D (k-Dimensional)**
-
-- **Status:** ✅ Explicação Detalhada + Exemplo
-- **Descrição:** Estrutura de dados para indexação espacial multidimensional
-- **Casos de Uso:** Busca espacial, sistemas de recomendação, compressão de dados
-- **Características:** Particiona o espaço recursivamente alternando dimensões
-
-**Arquivo:** `src/arvore_kd/kd_tree.py`
-
----
-
-### 2. **Árvore Rubro-Negra (Red-Black Tree)**
+### 1. **Árvore Rubro-Negra (Red-Black Tree)**
 
 - **Status:** ✅ Explicação Detalhada + Exemplo + **Implementação Completa**
 - **Descrição:** Árvore de busca binária auto-equilibrada com propriedades de coloração
@@ -115,7 +102,7 @@ python -m pytest testes/
 
 ---
 
-### 3. **Árvore 2-3-4**
+### 2. **Árvore 2-3-4**
 
 - **Status:** ✅ Explicação Detalhada + Exemplo + **Implementação Completa**
 - **Descrição:** Árvore n-ária equilibrada onde cada nó pode ter 2, 3 ou 4 filhos
@@ -132,29 +119,6 @@ python -m pytest testes/
 - ✅ Inserção com split de nós
 - ✅ Exclusão com mesclagem de nós
 - ✅ Busca por valor
-- ✅ Visualização da árvore
-
----
-
-### 4. **Árvore Splay**
-
-- **Status:** ✅ Explicação Detalhada + Exemplo + **Implementação Completa**
-- **Descrição:** Árvore de busca binária auto-equilibrada que reorganiza elementos acessados para raiz
-- **Operações:** Inserção, exclusão e busca em O(log n) amortizado
-- **Propriedades:**
-  - Não mantém informações de cor ou altura
-  - Nó acessado é movido para raiz via operações splay
-  - Dados recentemente acessados ficam perto da raiz
-  - Excelente para dados com padrões de acesso variáveis
-
-**Arquivo:** `src/arvore_splay/splay_tree.py`
-
-**Operações Implementadas:**
-
-- ✅ Inserção com reestruturação automática
-- ✅ Exclusão com rebalanceamento
-- ✅ Busca por valor
-- ✅ Operação splay (zig, zig-zig, zig-zag)
 - ✅ Visualização da árvore
 
 ---
@@ -187,71 +151,32 @@ O programa de demonstração realiza:
 ```
 trabalho_grafos/
 ├── README.md                           # Este arquivo
-├── requirements.txt                    # Dependências Python
-├── artigo_ieee.pdf                     # Artigo em formato IEEE
 │
-├── src/
+├── Arvore rubro-negra/
 │   ├── main.py                         # Programa principal - demonstração
-│   │
-│   ├── arvore_kd/
-│   │   ├── __init__.py
-│   │   ├── kd_tree.py                 # Implementação Árvore k-D
-│   │   └── exemplo_kd.py              # Exemplo de uso
-│   │
-│   ├── arvore_rubro_negra/
-│   │   ├── __init__.py
-│   │   ├── red_black_tree.py          # Implementação Árvore Rubro-Negra
-│   │   ├── node.py                    # Classe do nó
-│   │   └── rotacoes.py                # Operações de rotação
-│   │
-│   ├── arvore_2_3_4/
-│   │   ├── __init__.py
-│   │   ├── tree_234.py                # Implementação Árvore 2-3-4
-│   │   ├── node_234.py                # Classe do nó
-│   │   └── operacoes.py               # Inserção, exclusão, busca
-│   │
-│   ├── arvore_splay/
-│   │   ├── __init__.py
-│   │   ├── splay_tree.py              # Implementação Árvore Splay
-│   │   ├── node_splay.py              # Classe do nó
-│   │   └── operacoes_splay.py         # Operações splay e rotações
-│   │
-│   └── utils/
-│       ├── visualizacao.py            # Plotagem e visualização
-│       └── testes.py                  # Funções de teste
+│   ├── testes.py                       # Testes da árvore rubro-negra
+│   ├── requirements.txt                # Dependências
+│   └── README.md                       # Documentação específica
 │
-├── testes/
-│   ├── test_red_black_tree.py         # Testes Árvore Rubro-Negra
-│   ├── test_tree_234.py               # Testes Árvore 2-3-4
-│   ├── test_kd_tree.py                # Testes Árvore k-D
-│   ├── test_splay_tree.py             # Testes Árvore Splay
-│   └── test_integracao.py             # Testes de integração
-│
-├── visualizacao/
-│   ├── graficos_comparacao.py         # Comparação entre árvores
-│   └── saida_grafos/                  # Imagens das árvores geradas
-│
-└── docs/
-    ├── CONCEITOS.md                   # Explicação dos conceitos
-    ├── BALANCEAMENTO.md               # Detalhes do balanceamento
-    └── ANALISE_DESEMPENHO.md          # Análise O(n) e comparações
+└── Arvore 2-3-4/
+    ├── main.py                         # Programa principal - demonstração
+    ├── testes.py                       # Testes da árvore 2-3-4
+    ├── requirements.txt                # Dependências
+    └── README.md                       # Documentação específica
 ```
 
 ---
 
 ## 🔬 Análise Comparativa dos Algoritmos
 
-| Aspecto         | Rubro-Negra    | 2-3-4              | k-D            | Splay           |
-| --------------- | -------------- | ------------------ | -------------- | --------------- |
-| **Tipo**        | Árvore Binária | Árvore N-ária      | Árvore Binária | Árvore Binária  |
-| **Inserção**    | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
-| **Busca**       | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
-| **Exclusão**    | O(log n)       | O(log n)           | O(log n)       | O(log n)\*      |
-| **Rotações**    | Múltiplas      | Poucas (split)     | N/A            | Múltiplas       |
-| **Dimensão**    | 1D             | 1D                 | n-D            | 1D              |
-| **Caso de Uso** | Dados gerais   | Indexação de disco | Busca espacial | Acesso variável |
-
-\*Complexidade amortizada
+| Aspecto         | Rubro-Negra    | 2-3-4              |
+| --------------- | -------------- | ------------------ |
+| **Tipo**        | Árvore Binária | Árvore N-ária      |
+| **Inserção**    | O(log n)       | O(log n)           |
+| **Busca**       | O(log n)       | O(log n)           |
+| **Exclusão**    | O(log n)       | O(log n)           |
+| **Rotações**    | Múltiplas      | Poucas (split)     |
+| **Caso de Uso** | Dados gerais   | Indexação de disco |
 
 ---
 
@@ -303,15 +228,12 @@ Arquivo: `artigo_ieee.pdf`
 ## ✅ Checklist de Entrega
 
 - [x] Implementação das árvores binárias (Rubro-Negra e 2-3-4)
-- [x] Explicação da árvore k-D com exemplo
 - [x] Operações obrigatórias: inserção, exclusão, busca
 - [x] Mínimo de 21 nós em cada árvore
 - [x] Definição explícita de manipulação de elementos repetidos
 - [x] Visualização gráfica das árvores
 - [x] Código bem documentado no GitHub
 - [x] Testes automatizados
-- [x] Artigo IEEE
-- [x] Vídeo de apresentação (20 minutos com todos os integrantes)
 
 ---
 
